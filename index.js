@@ -6,7 +6,12 @@ function empty() {
 
 function searchLocal() {
     let list = localStorage.getItem('list')
-    list ? list = JSON.parse(list) : []
+    if (list) {
+        JSON.parse(list)
+    } else {
+        list = []
+    }
+
     return list
 }
 
@@ -18,17 +23,21 @@ function printList(list) {
         let url = document.createElement('p')
         let txt = document.createElement('p')
         let delBtn = document.createElement('button')
-        ref.textContent(element.ref)
-        url.textContent(element.url)
-        txt.textContent(element.text)
-        li.appendChild(ref, url, p2, delBtn)
+        ref.textContent = element.ref
+        url.textContent = element.url
+        txt.textContent = element.text
+        delBtn.addEventListener('click', () => {
+            let updatedList = searchLocal().filter(item => item.url !== element.url);
+            localStorage.setItem('list', JSON.stringify(updatedList));
+            printList(updatedList);
+        });
+        li.appendChild(ref);
+        li.appendChild(url);
+        li.appendChild(txt);
+        li.appendChild(delBtn);
         ulList.appendChild(li);
     });
-    list.forEach(element => {
-        let li = document.createElement('li');
-        li.textContent = url;
-        ulList.appendChild(li);
-    });
+
 }
 
 function initialSearch() {
@@ -50,14 +59,10 @@ function create() {
         ref: ref,
         text: txt,
     }
-    console.log(merch)
-    merch = JSON.stringify(merch)
-
-    console.log(merch)
-    console.log(JSON.parse(merch))
-
+    list.push(merch)
+    localStorage.setItem('list', JSON.stringify(list))
     printList(list)
-
+    document.querySelector('#input-txt').value = ""
 
 }
 initialSearch()
