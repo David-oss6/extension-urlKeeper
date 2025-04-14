@@ -14,3 +14,12 @@ div {
   width: 100%;
   gap: 5px;
 }
+
+button {
+  font-weight: bolder;
+  border-radius: 4px;
+}
+
+#btn-delete {
+  background-color: rgb(220, 55, 55);
+}
