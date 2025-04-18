@@ -1,11 +1,33 @@
 body {
   padding: 1rem;
+  font-size: small;
   display: flex;
   flex-direction: column;
+  min-width: 400px;
+  min-height: fit-content;
+  background: white
+  
+}
+#input-url{
+  border: 2px solid rgb(33, 207, 172);
+  border-radius: 3px;
+  padding: 5px;
+  height: 20px;
+  outline: none;
+}
+
+#input-search{
+  border: 2px solid rgb(33, 207, 172);
+  padding: 5px;
+  height: 20px;
+  outline: none;
+  border-radius: 3px;
 }
 
 textarea {
-  padding: 2px 5px;
+  border: 2px solid rgb(33, 207, 172);
+  padding: 5px;
+  border-radius: 3px;
 }
 
 div {
@@ -15,11 +37,47 @@ div {
   gap: 5px;
 }
 
-button {
-  font-weight: bolder;
-  border-radius: 4px;
+ul{
+  list-style: none;
 }
 
-#btn-delete {
-  background-color: rgb(220, 55, 55);
+li{
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgray;
+  
+}
+
+.ref{
+  font-weight: 100;
+}
+
+.txt{
+ max-width: 400px;
+  border-radius: 3px;
+}
+
+a{
+  text-decoration: none
+}
+
+#btn-create{
+  background-color: rgb(33, 207, 172);
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+}
+
+#btn-create:hover{
+  cursor: pointer;
+}
+
+.del-btn{
+  
+  background-color: rgb(238, 120, 120);
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+.del-btn:hover{
+  cursor: pointer;
 }
